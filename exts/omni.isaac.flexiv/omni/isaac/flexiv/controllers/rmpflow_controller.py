@@ -6,9 +6,8 @@
 # distribution of this software and related documentation without an express
 # license agreement from NVIDIA CORPORATION is strictly prohibited.
 #
-import omni.isaac.motion_generation as mg
-from omni.isaac.core.articulations import Articulation
-
+import isaacsim.robot_motion.motion_generation as mg
+from isaacsim.core.prims import SingleArticulation 
 
 class RMPFlowController(mg.MotionPolicyController):
     """[summary]
@@ -22,7 +21,7 @@ class RMPFlowController(mg.MotionPolicyController):
     def __init__(
         self,
         name: str,
-        robot_articulation: Articulation,
+        robot_articulation: SingleArticulation,
         physics_dt: float = 1.0 / 60.0,
     ) -> None:
         self.rmp_flow_config = (

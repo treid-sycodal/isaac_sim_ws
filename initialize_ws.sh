@@ -17,11 +17,12 @@ fi
 
 # Create symbolic links mapping to Isaac Sim root
 ISAAC_ROOT=$1
-ln -s $SCRIPT_PATH/exts/omni.isaac.flexiv/ $ISAAC_ROOT/exts/
-ln -s $SCRIPT_PATH/standalone_examples/api/omni.isaac.flexiv/ $ISAAC_ROOT/standalone_examples/api/
+ln -sf $SCRIPT_PATH/exts/omni.isaac.flexiv/ $ISAAC_ROOT/exts/
+ln -sf $SCRIPT_PATH/standalone_examples/api/omni.isaac.flexiv/ $ISAAC_ROOT/standalone_examples/api/
 
 # Add "omni.isaac.flexiv" to dependency list right after "omni.isaac.franka"
 KEYWORD='"omni.isaac.franka" = {}'
 NEW_LINE='"omni.isaac.flexiv" = {}'
-sed -i "/$KEYWORD/a $NEW_LINE" "$ISAAC_ROOT/apps/omni.isaac.sim.python.kit"
-sed -i "/$KEYWORD/a $NEW_LINE" "$ISAAC_ROOT/apps/omni.isaac.sim.base.kit"
+sed -i "/$KEYWORD/a $NEW_LINE" "$ISAAC_ROOT/apps/isaacsim.exp.base.python.kit"
+sed -i "/$KEYWORD/a $NEW_LINE" "$ISAAC_ROOT/apps/isaacsim.exp.base.kit"
+
